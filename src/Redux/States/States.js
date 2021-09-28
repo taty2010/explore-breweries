@@ -1,0 +1,3 @@
+export const CALL_STATE = "CALL_STATE";
+export const CALL_STATE_SUCCESS = "CALL_STATE_SUCCESS";
+export const CALL_STATE_FAIL = "CALL_STATE_FAIL";
