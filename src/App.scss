@@ -184,11 +184,11 @@ a {
 }
 
 .brewWrapper {
-  margin: 2px;
+  margin: 1%;
+  padding: 2% 0;
   width: 50%;
   flex-flow: column;
-  height: 250px;
-  border-radius: 50px;
+  // border-radius: 50px;
   mix-blend-mode: screen;
   background-color: #f1fafa08;
   display: flex;
@@ -216,7 +216,7 @@ a {
 }
 .brewWrapper:hover .info {
   display: block;
-  margin-left: 5%;
+  // margin-left: 5%;
 }
 
 .brewWrapper .info {

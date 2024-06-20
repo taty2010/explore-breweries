@@ -12,9 +12,6 @@ const Brewery = (props) => {
   });
   return (
     <div className="brewWrapper">
-      {/* <a href={props.list.website_url}> */}
-      {/* <div className='brewItems'> */}
-      {/* <i class="fas fa-beer"></i> */}
       <Avatar
         size={50}
         variant="pixel"
@@ -25,9 +22,8 @@ const Brewery = (props) => {
           <li>
             <h2>{props.list.name}</h2>
           </li>
-          <li>{props.list.city}</li>
-          <li>{props.list.state}</li>
-          {/* <li>{props.list.country}</li> */}
+          {/* <li>{props.list.city}</li>
+          <li>{props.list.state}</li> */}
         </ul>
       </div>
       <ul className="info">
@@ -51,8 +47,6 @@ const Brewery = (props) => {
           ""
         )}
       </ul>
-      {/* </div> */}
-      {/* </a> */}
     </div>
   );
 };

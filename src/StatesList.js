@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import States from "states-us";
 import styled from "styled-components";
 import List from "./List";
-import { Route } from "react-router-dom";
+import { Route, useLocation, Routes } from "react-router-dom";
 import StatePage from "./StatePage";
 import { useSelector, useDispatch } from "react-redux";
-import Sort from "./Sort";
-import ReactPaginate from "react-paginate";
 import { callState } from "./Redux/States/Reducer";
 
 const Wrapper = styled.div`
@@ -59,24 +57,24 @@ const Span = styled.span`
   }
 `;
 
-const StatesList = (props) => {
+const StatesList = ({setFindState, breweries, findState}) => {
+  let location = useLocation()
   const stateName = [];
   const dispatch = useDispatch();
   const [sidebar, setSidebar] = useState(false);
 
-  const { breweriesState, stateSuccess, isFetchingState } = useSelector(
+  const { isFetchingState } = useSelector(
     (state) => state.States
   );
 
   useEffect(() => {
-    dispatch(callState(location));
+    dispatch(callState(locations));
   }, []);
   States.forEach((state) => {
     stateName.push(state.name);
   });
-  // }, []);
-  // callState(findState);
-  const location = props.location.pathname.replaceAll("/states/", "");
+
+  const locations = location.pathname.replaceAll("/states/", "");
 
   const toggle = () => {
     setSidebar(!sidebar);
@@ -87,8 +85,8 @@ const StatesList = (props) => {
         {stateName.map((state) => (
           <List
             key={state}
-            setFindState={props.setFindState}
-            findState={props.findState}
+            setFindState={setFindState}
+            findState={findState}
             state={state}
           />
         ))}
@@ -96,7 +94,7 @@ const StatesList = (props) => {
       <Span onClick={toggle} class="toggle-states">
         View States
       </Span>
-      {props.location.pathname === "/states" ? (
+      {location.pathname === "/states" ? (
         <div className="title-state-search">
           <h2>Select A State to find Breweries</h2>
         </div>
@@ -109,12 +107,12 @@ const StatesList = (props) => {
           </div>
         </div>
       ) : (
-        <Route
-          path="/states/:state"
-          render={(routeprops) => {
-            return <StatePage {...routeprops} />;
-          }}
-        />
+        <Routes>
+          <Route
+            path=":state"
+            element={<StatePage />}
+          />
+         </Routes>
       )}
     </Wrapper>
   );

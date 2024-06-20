@@ -1,5 +1,4 @@
 import React from "react";
-import StatesList from "../StatesList";
 const About = () => {
   return (
     <div>
