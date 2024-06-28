@@ -8,7 +8,7 @@ const Title = styled.div`
   mix-blend-mode: screen;
   background-color: white;
   font-size: 18vw;
-  /* line-height: 24vh; */
+  backdrop-filter: blur(2px);
   margin: 0 auto;
   font-family: "Permanent Marker", cursive;
   display: flex;

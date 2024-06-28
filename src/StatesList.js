@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import States from "states-us";
+import states from "states-us";
 import styled from "styled-components";
 import List from "./List";
 import { Route, useLocation, Routes } from "react-router-dom";
@@ -23,7 +23,7 @@ const UL = styled.ul`
   overflow: scroll;
   flex-basis: 20%;
   overflow-x: hidden;
-  height: 500px;
+  height: 600px;
   position: sticky;
   top: 92px;
   left: 0;
@@ -57,22 +57,20 @@ const Span = styled.span`
   }
 `;
 
-const StatesList = ({setFindState, breweries, findState}) => {
-  let location = useLocation()
-  const stateName = [];
+const StatesList = ({ setFindState, breweries, findState }) => {
+  let location = useLocation();
   const dispatch = useDispatch();
   const [sidebar, setSidebar] = useState(false);
 
-  const { isFetchingState } = useSelector(
-    (state) => state.States
-  );
+  const { isFetchingState } = useSelector((state) => state.States);
 
   useEffect(() => {
     dispatch(callState(locations));
   }, []);
-  States.forEach((state) => {
-    stateName.push(state.name);
-  });
+
+  const filterdStates = states.filter(
+    (state) => state.contiguous || state.name === "Hawaii"
+  );
 
   const locations = location.pathname.replaceAll("/states/", "");
 
@@ -82,12 +80,12 @@ const StatesList = ({setFindState, breweries, findState}) => {
   return (
     <Wrapper>
       <UL className={`states_list ${sidebar ? `sidebar-open` : ``}`}>
-        {stateName.map((state) => (
+        {filterdStates.map((state) => (
           <List
-            key={state}
+            key={state.name}
             setFindState={setFindState}
             findState={findState}
-            state={state}
+            state={state.name}
           />
         ))}
       </UL>
@@ -108,11 +106,8 @@ const StatesList = ({setFindState, breweries, findState}) => {
         </div>
       ) : (
         <Routes>
-          <Route
-            path=":state"
-            element={<StatePage />}
-          />
-         </Routes>
+          <Route path=":state" element={<StatePage />} />
+        </Routes>
       )}
     </Wrapper>
   );

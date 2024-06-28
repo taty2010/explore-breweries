@@ -5,10 +5,10 @@ const About = () => {
       <div class="main-content">
         <div class="saturation-bg"></div>
         <div class="main-content text-block">
-          <h3>Welcome to Explore Breweries</h3>
+          <h2>Welcome to Explore Breweries</h2>
           <p>
-            Explore Breweries uses the Open Brewery DB API, which allows for you
-            to search for breweries, cideries, brewpubs, and bottleshops
+            Explore Breweries uses the <a href="https://www.openbrewerydb.org/" target="_blank">Open Brewery DB API</a>. You can find 
+            breweries, cideries, brewpubs, and bottleshops based on State or you can search for something specific. 
           </p>
         </div>
       </div>

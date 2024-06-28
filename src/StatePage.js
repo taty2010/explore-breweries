@@ -7,15 +7,15 @@ const ListWrapper = styled.div`
   justify-content: center;
   flex-flow: column;
   align-items: center;
-  height: auto;
-  flex-basis: 80%;
+  flex-basis: 70%;
   margin: 0 auto;
+  overflow-y: scroll;
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
 `;
 
 const StatePage = (props, { match, routeprops }) => {
-  // let { state } = useParams();
-
-  // const dispatch = useDispatch();
   const { breweriesState } = useSelector((state) => state.States);
 
   return (

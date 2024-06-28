@@ -4,17 +4,19 @@ import axios from "axios";
 
 function Search() {
   const [search, setSearch] = useState(undefined);
-  const [searchResult, setSearchResults] = useState(null)
-  const [success, setSuccess] = useState(false)
+  const [searchResult, setSearchResults] = useState(null);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     axios
-      .get(`https://api.openbrewerydb.org/breweries/search?query=${search}&per_page=10`)
+      .get(
+        `https://api.openbrewerydb.org/breweries/search?query=${search}&per_page=10`
+      )
       .then((res) => {
-        setSearchResults(res)
+        setSearchResults(res);
         setSuccess(true);
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }, [search]);
 
   const handleChanges = (e) => {
@@ -23,7 +25,7 @@ function Search() {
   return (
     <div className="App">
       <div class="search-wrapper">
-        <h1>SEARCH</h1>
+        <h1>Search for Breweries</h1>
         <form>
           <input
             type="text"
@@ -39,7 +41,6 @@ function Search() {
         ) : (
           <div>
             <BrewList breweries={searchResult} />
-            {/* <button onClick={props.addMore}>Show More</button> */}
           </div>
         )}
       </div>

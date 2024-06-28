@@ -8,11 +8,14 @@ const ListWrapper = styled.div`
   flex-flow: column;
   align-items: center;
   height: auto;
-  width: 99vw;
+  width: 100%;
   margin: 0 auto;
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
 `;
 
-const BrewList = ({breweries}) => {
+const BrewList = ({ breweries }) => {
   return (
     <ListWrapper>
       {breweries.data.map((list) => (

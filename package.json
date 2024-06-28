@@ -20,7 +20,7 @@
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
-    "states-us": "1.0.1",
+    "states-us": "^1.0.4",
     "styled-components": "^6.1.11"
   },
   "scripts": {

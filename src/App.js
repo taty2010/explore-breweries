@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { callItem } from "./Redux/BreweriesList/Reducer";
+import { useSelector } from "react-redux";
 import Header from "./Components/Header";
 import { Route, Routes } from "react-router-dom";
 import Search from "./Components/Search";
@@ -16,23 +15,20 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <Routes>
-          <Route exact path="/" element={<About/>} />
-          <Route
-            path="/states/*"
-            element={
-                <StatesList
-                  findState={findState}
-                  breweries={breweries}
-                  setFindState={setFindState}
-                />
-            }
-          />
-          <Route
-            path="/search"
-            element={<Search />}
-          />
-        </Routes>
+      <Routes>
+        <Route exact path="/" element={<About />} />
+        <Route
+          path="/states/*"
+          element={
+            <StatesList
+              findState={findState}
+              breweries={breweries}
+              setFindState={setFindState}
+            />
+          }
+        />
+        <Route path="/search" element={<Search />} />
+      </Routes>
       <Footer />
     </div>
   );
