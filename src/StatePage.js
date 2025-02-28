@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Brewery from "./Components/Brewery";
 const ListWrapper = styled.div`
   display: flex;

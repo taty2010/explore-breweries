@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -29,7 +29,7 @@ const List = (props) => {
           }}
           to={{
             pathname: `/states/${props.state}`,
-            state: props.state
+            state: props.state,
           }}
         >
           {props.state}

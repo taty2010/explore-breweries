@@ -68,7 +68,7 @@ p {
 }
 
 .router_link {
-  font-size: 3vw;
+  font-size: 2vw;
   padding: 0 2%;
 }
 
@@ -168,7 +168,7 @@ a {
   width: 85vw;
 
   h2 {
-    font-size: 5vw;
+    font-size: 3.5vw;
     border-bottom: 4px solid #c6732b;
     color: white;
   }
@@ -177,7 +177,7 @@ a {
 .main-content p {
   width: 70%;
   font-family: "Bebas Neue", cursive;
-  font-size: 4vw;
+  font-size: 3vw;
 }
 
 .search-wrapper {
@@ -366,7 +366,11 @@ form {
   border-top-right-radius: 52px;
 
   ul {
-    padding: 2%;
+    padding: 1%;
     display: flex;
+  }
+
+  li {
+    font-size: 1vw;
   }
 }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "src/index.js",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",

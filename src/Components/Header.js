@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Nav from "../Components/Nav";
 
 const Title = styled.div`
   width: 100%;
+  max-width: 1800px;
   color: black;
   mix-blend-mode: screen;
   background-color: white;
@@ -21,7 +22,7 @@ const Title = styled.div`
     font-size: 5vw;
   }
   h2 {
-    font-size: 12vw;
+    font-size: 10vw;
   }
 `;
 
