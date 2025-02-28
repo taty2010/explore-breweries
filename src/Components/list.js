@@ -1,6 +1,5 @@
 import React from "react";
 import Brewery from "./Brewery";
-import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 const ListWrapper = styled.div`
@@ -9,16 +8,17 @@ const ListWrapper = styled.div`
   flex-flow: column;
   align-items: center;
   height: auto;
-  width: 99vw;
+  width: 100%;
   margin: 0 auto;
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
 `;
 
-const BrewList = (prop) => {
-  const { breweries } = useSelector((state) => state.BreweriesSearch);
-
+const BrewList = ({ breweries }) => {
   return (
     <ListWrapper>
-      {breweries.map((list) => (
+      {breweries.data.map((list) => (
         <Brewery key={list.id} list={list} />
       ))}
     </ListWrapper>

@@ -4,17 +4,14 @@ import randomcolor from "randomcolor";
 const Brewery = (props) => {
   let color = randomcolor({
     count: 3,
-    hue: "blue"
+    hue: "blue",
   });
   let color1 = randomcolor({
     count: 2,
-    hue: "red"
+    hue: "red",
   });
   return (
     <div className="brewWrapper">
-      {/* <a href={props.list.website_url}> */}
-      {/* <div className='brewItems'> */}
-      {/* <i class="fas fa-beer"></i> */}
       <Avatar
         size={50}
         variant="pixel"
@@ -25,13 +22,13 @@ const Brewery = (props) => {
           <li>
             <h2>{props.list.name}</h2>
           </li>
-          <li>{props.list.city}</li>
-          <li>{props.list.state}</li>
-          {/* <li>{props.list.country}</li> */}
+          <li className="address">
+            {props.list.city}, {props.list.state}
+            {props.list.street}
+          </li>
         </ul>
       </div>
       <ul className="info">
-        <li>{props.list.street}</li>
         {props.list.website_url ? (
           <li>
             <a href={props.list.website_url}>
@@ -51,8 +48,6 @@ const Brewery = (props) => {
           ""
         )}
       </ul>
-      {/* </div> */}
-      {/* </a> */}
     </div>
   );
 };

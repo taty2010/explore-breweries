@@ -53,6 +53,7 @@
 h1 {
   color: white;
   font-size: 6vw;
+  font-family: "Permanent Marker", cursive;
 }
 
 h3 {
@@ -67,8 +68,12 @@ p {
 }
 
 .router_link {
-  font-size: 3vw;
+  font-size: 2vw;
   padding: 0 2%;
+}
+
+a.router_link:hover {
+  color: #e0905f;
 }
 
 .router_link:active {
@@ -114,7 +119,7 @@ a {
   color: #e0905f;
 }
 
-.toggle-states{
+.toggle-states {
   cursor: pointer;
 }
 
@@ -122,26 +127,28 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   flex-basis: 80%;
   height: 95vh;
   flex-flow: column;
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
 }
 
 .title-state-search h2 {
   color: white;
-  font-size: 8vw;
+  font-size: 5vw;
 }
 
-.states_list::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 1em;
 }
 
-.states_list::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.states_list::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: #0d3d55;
   border-radius: 25px;
   border: 1px solid #fd8e80;
@@ -154,48 +161,42 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   position: relative;
-  width: 100%;
-  /* mix-blend-mode: darken; */
-}
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
+  border-radius: 50px;
+  width: 85vw;
 
-.main-content .saturation-bg {
-  width: 100vw;
-  height: 90vh;
-  position: absolute;
-  top: 0px;
-  mix-blend-mode: saturation;
-  // background-color: white;
-}
-.main-content h3 {
-  font-size: 4vw;
-  border-bottom: 4px solid #c6732b;
+  h2 {
+    font-size: 3.5vw;
+    border-bottom: 4px solid #c6732b;
+    color: white;
+  }
 }
 
 .main-content p {
   width: 70%;
-  background: black;
-  mix-blend-mode: color-dodge;
-  backdrop-filter: blur(3px);font-family: "Bebas Neue", cursive;
-  font-size: 4vw;
+  font-family: "Bebas Neue", cursive;
+  font-size: 3vw;
 }
 
 .search-wrapper {
   min-height: 100vh;
+  backdrop-filter: blur(14px);
+  background: #00000059;
+  mix-blend-mode: screen;
+  width: 85vw;
+  border-radius: 52px;
 }
 
 .brewWrapper {
-  margin: 2px;
+  margin: 1%;
+  padding: 2% 0;
   width: 50%;
-  flex-flow: column;
-  height: 250px;
-  border-radius: 50px;
-  mix-blend-mode: screen;
-  background-color: #f1fafa08;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  box-shadow: 3px 6px 3px 1px #000000ad;
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid white;
 }
 
 .brewWrapper .name-loc li {
@@ -208,19 +209,8 @@ a {
   font-family: "Bebas Neue", cursive;
 }
 
-.brewWrapper:hover {
-  mix-blend-mode: normal;
-  border-radius: 0;
-  width: 100%;
-  transition: 1s;
-}
-.brewWrapper:hover .info {
-  display: block;
-  margin-left: 5%;
-}
-
-.brewWrapper .info {
-  display: none;
+.brewWrapper li.address {
+  font-size: 1.5vw;
 }
 
 .brewItems {
@@ -242,12 +232,15 @@ a {
 input {
   border-radius: 50px;
   height: 5vh;
-  width: 55vw;
-  background-color: transparent;
-  color: white;
+  width: 45vw;
+  background-color: #ffffffe0;
+  color: black;
   font-weight: bold;
-  font-size: 4vw;
+  font-size: 2vw;
   padding: 1%;
+  border: 1px solid white;
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
 }
 
 form {
@@ -324,20 +317,19 @@ form {
   }
 }
 
-
-.header{
+.header {
   background-image: url("https://images.pexels.com/photos/3626602/pexels-photo-3626602.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  width: 95vw;
+  width: 85vw;
   margin: 0 auto;
-  height: 99vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   // transition: height 0.2s;
-  @media only screen and (max-width: 500px){
+  @media only screen and (max-width: 500px) {
     height: auto;
   }
 }
@@ -348,28 +340,37 @@ form {
   top: 0;
   z-index: 999;
   // transition: height 0.5s;
-  h2{
+  h2 {
     font-size: 4vw;
   }
-  a{
-    font-size: 2vw
+  a {
+    font-size: 2vw;
   }
-  .title-nav{
+  .title-nav {
     flex-flow: row wrap;
     align-items: unset;
   }
 }
 
-.min-header.title-nav{
-  .div{
+.min-header.title-nav {
+  .div {
     margin-top: 0;
   }
 }
 
-.footer{
+.footer {
   background: #c6732b;
   mix-blend-mode: screen;
-  width: 100%;
+  width: 85vw;
   border-top-left-radius: 52px;
   border-top-right-radius: 52px;
+
+  ul {
+    padding: 1%;
+    display: flex;
+  }
+
+  li {
+    font-size: 1vw;
+  }
 }

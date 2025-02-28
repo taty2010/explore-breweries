@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import States from "states-us";
+import states from "states-us";
 import styled from "styled-components";
 import List from "./List";
-import { Route } from "react-router-dom";
+import { Route, useLocation, Routes } from "react-router-dom";
 import StatePage from "./StatePage";
 import { useSelector, useDispatch } from "react-redux";
-import Sort from "./Sort";
-import ReactPaginate from "react-paginate";
 import { callState } from "./Redux/States/Reducer";
 
 const Wrapper = styled.div`
@@ -25,7 +23,7 @@ const UL = styled.ul`
   overflow: scroll;
   flex-basis: 20%;
   overflow-x: hidden;
-  height: 500px;
+  height: 600px;
   position: sticky;
   top: 92px;
   left: 0;
@@ -59,24 +57,22 @@ const Span = styled.span`
   }
 `;
 
-const StatesList = (props) => {
-  const stateName = [];
+const StatesList = ({ setFindState, breweries, findState }) => {
+  let location = useLocation();
   const dispatch = useDispatch();
   const [sidebar, setSidebar] = useState(false);
 
-  const { breweriesState, stateSuccess, isFetchingState } = useSelector(
-    (state) => state.States
-  );
+  const { isFetchingState } = useSelector((state) => state.States);
 
   useEffect(() => {
-    dispatch(callState(location));
+    dispatch(callState(locations));
   }, []);
-  States.forEach((state) => {
-    stateName.push(state.name);
-  });
-  // }, []);
-  // callState(findState);
-  const location = props.location.pathname.replaceAll("/states/", "");
+
+  const filterdStates = states.filter(
+    (state) => state.contiguous || state.name === "Hawaii"
+  );
+
+  const locations = location.pathname.replaceAll("/states/", "");
 
   const toggle = () => {
     setSidebar(!sidebar);
@@ -84,19 +80,19 @@ const StatesList = (props) => {
   return (
     <Wrapper>
       <UL className={`states_list ${sidebar ? `sidebar-open` : ``}`}>
-        {stateName.map((state) => (
+        {filterdStates.map((state) => (
           <List
-            key={state}
-            setFindState={props.setFindState}
-            findState={props.findState}
-            state={state}
+            key={state.name}
+            setFindState={setFindState}
+            findState={findState}
+            state={state.name}
           />
         ))}
       </UL>
       <Span onClick={toggle} class="toggle-states">
         View States
       </Span>
-      {props.location.pathname === "/states" ? (
+      {location.pathname === "/states" ? (
         <div className="title-state-search">
           <h2>Select A State to find Breweries</h2>
         </div>
@@ -109,12 +105,9 @@ const StatesList = (props) => {
           </div>
         </div>
       ) : (
-        <Route
-          path="/states/:state"
-          render={(routeprops) => {
-            return <StatePage {...routeprops} />;
-          }}
-        />
+        <Routes>
+          <Route path=":state" element={<StatePage />} />
+        </Routes>
       )}
     </Wrapper>
   );
